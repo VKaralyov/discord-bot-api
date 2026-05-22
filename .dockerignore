@@ -1,0 +1,6 @@
+bin/
+out/
+*.exe
+*.log
+.git
+**/node_modules
