@@ -1,0 +1,42 @@
+openapi: 3.0.1
+info:
+  title: Discord Bot API
+  version: 0.1.0
+paths:
+  /v1/send:
+    post:
+      summary: Send a message through Discord bot token
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                mode:
+                  type: string
+                  description: "bot or webhook"
+                token:
+                  type: string
+                channel_id:
+                  type: string
+                webhook_url:
+                  type: string
+                content:
+                  type: string
+                attachments:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      filename:
+                        type: string
+                      url:
+                        type: string
+                      content_base64:
+                        type: string
+      responses:
+        '200':
+          description: OK
+        '502':
+          description: Bad gateway (discord failure)
